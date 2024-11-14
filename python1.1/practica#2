@@ -1,0 +1,17 @@
+import csv
+
+def read_csv(path):
+    total = 100
+    with open(path, mode='r') as file:
+        reader = csv.reader(file)
+        for row in reader: 
+            if len(row) == 2:
+                try:
+                    total += int(row[1])  
+                except ValueError:
+                    print(f"Error al convertir el gasto a entero: {row[1]}")
+    return total
+
+response = read_csv('cuento/data.csv')
+print(response)
+
